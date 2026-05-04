@@ -9,3 +9,4 @@ $routes->get('/', 'Home::index');
 $routes->get('/produk', 'ProdukController::index');
 $routes->get('/keranjang', 'TransaksiController::index');
 $routes->get('/dashboard', 'Home::dashboard');
+$routes->get('/riwayat', 'Home::riwayat');
