@@ -9,7 +9,7 @@ $uri = uri_string();
           <div class="sidebar-brand-icon rotate-n-15">
               <i class="fas fa-parking"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">Parkir Pro</div>
+          <div class="sidebar-brand-text mx-3">SiParkir</div>
       </a>
 
       <!-- Divider -->
