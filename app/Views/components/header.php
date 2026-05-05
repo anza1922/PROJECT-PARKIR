@@ -17,6 +17,10 @@ if(uri_string()!=""){
 
     <title>- Parkir - <?php echo $hlm ?></title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="<?= base_url('logo.ico') ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('logo.ico') ?>">
+
     <!-- Custom fonts for this template -->
     <link href="<?= base_url('startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
     <link
