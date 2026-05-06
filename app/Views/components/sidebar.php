@@ -15,6 +15,14 @@ $uri = uri_string();
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
+      <!-- Nav Item - Beranda (Landing Page) -->
+      <li class="nav-item">
+          <a class="nav-link" href="<?= site_url('/') ?>">
+              <i class="fas fa-fw fa-home"></i>
+              <span>Beranda</span>
+          </a>
+      </li>
+
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?= ($uri === 'dashboard') ? 'active' : '' ?>">
           <a class="nav-link" href="<?= site_url('/dashboard') ?>">

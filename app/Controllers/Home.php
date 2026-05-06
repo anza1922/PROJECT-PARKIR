@@ -4,9 +4,14 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index()
+    public function index(): string
     {
-        return redirect()->to('/dashboard');
+        return view('landing');
+    }
+
+    public function login(): string
+    {
+        return view('login');
     }
 
     public function dashboard(): string
