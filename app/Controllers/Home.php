@@ -16,4 +16,9 @@ class Home extends BaseController
     {
         return view('riwayat');
     }
+
+    public function profil(): string
+    {
+        return view('profil');
+    }
 }
