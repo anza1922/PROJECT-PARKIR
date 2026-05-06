@@ -1,265 +1,304 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
-<!-- Floating Stat Cards Row -->
-<div class="row mb-2">
-    <!-- Total Kendaraan -->
-    <!-- <div class="col-md-3 mb-3">
-        <div class="card info-card shadow-sm h-100 border-0">
-            <div class="card-body">
-                <h6 class="card-title text-uppercase text-muted fw-bold small p-0 mt-2 mb-2">Total Kendaraan</h6>
-                <div class="d-flex align-items-center">
-                    <div class="w-100">
-                        <h2 class="fw-bolder mb-1">1,284</h2>
-                        <div class="d-flex align-items-center mt-3">
-                            <span class="badge bg-success bg-opacity-10 text-success fw-bold p-2"><i class="bi bi-arrow-up-short"></i> 14% naik</span>
-                        </div>
+
+<!-- Filter Bar -->
+<div class="card shadow-sm border-0 mb-4" style="border-radius:12px;background:linear-gradient(135deg,#4e73df,#224abe)">
+    <div class="card-body py-3 px-4">
+        <div class="row align-items-center">
+            <div class="col-md-4 mb-2 mb-md-0">
+                <div class="bg-white rounded p-3 d-flex align-items-center">
+                    <i class="fas fa-car text-primary mr-3" style="font-size:1.2rem"></i>
+                    <div class="flex-grow-1">
+                        <small class="text-muted font-weight-bold d-block">Jenis Kendaraan</small>
+                        <select class="form-control form-control-sm border-0 p-0 font-weight-bold" id="jenisKendaraan" style="height:auto;font-size:.95rem" onchange="updateBiaya()">
+                            <option value="mobil">Mobil</option>
+                            <option value="motor">Motor</option>
+                        </select>
                     </div>
                 </div>
             </div>
-        </div>
-    </div> -->
-
-    <!-- Slot Terisi -->
-    <div class="col-12 col-md-6 mb-3">
-        <div class="card info-card shadow-sm h-100 border-0">
-            <div class="card-body">
-                <h6 class="card-title text-uppercase text-muted fw-bold small p-0 mt-2 mb-2">Slot Terisi</h6>
-                <div class="d-flex align-items-center w-100">
-                    <div class="w-100">
-                        <h2 class="fw-bolder mb-2">72%</h2>
-                        <div class="progress mt-3" style="height: 8px;">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 72%" aria-valuenow="72"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+            <div class="col-md-4 mb-2 mb-md-0">
+                <div class="bg-white rounded p-3 d-flex align-items-center">
+                    <i class="fas fa-calendar-alt text-primary mr-3" style="font-size:1.2rem"></i>
+                    <div class="flex-grow-1">
+                        <small class="text-muted font-weight-bold d-block">Tanggal</small>
+                        <input type="date" class="form-control form-control-sm border-0 p-0 font-weight-bold" id="tanggal" style="height:auto;font-size:.95rem" value="2026-05-06">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white rounded p-3 d-flex align-items-center">
+                    <i class="fas fa-clock text-primary mr-3" style="font-size:1.2rem"></i>
+                    <div class="flex-grow-1">
+                        <small class="text-muted font-weight-bold d-block">Durasi</small>
+                        <select class="form-control form-control-sm border-0 p-0 font-weight-bold" id="durasi" style="height:auto;font-size:.95rem" onchange="updateBiaya()">
+                            <option value="1">1 Jam</option>
+                            <option value="2" selected>2 Jam</option>
+                            <option value="3">3 Jam</option>
+                            <option value="4">4 Jam</option>
+                            <option value="5">5 Jam</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Slot Kosong -->
-    <div class="col-12 col-md-6 mb-3">
-        <div class="card info-card shadow-sm h-100 border-0">
-            <div class="card-body">
-                <h6 class="card-title text-uppercase text-muted fw-bold small p-0 mt-2 mb-2">Slot Kosong</h6>
-                <div class="d-flex align-items-center w-100">
-                    <div class="w-100">
-                        <h2 class="fw-bolder mb-2">18%</h2>
-                        <div class="progress mt-3" style="height: 8px;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 18%"
-                                aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
-    <!-- Pendapatan Hari Ini -->
-    <!-- <div class="col-md-6 mb-3">
-        <div class="card info-card text-white shadow-sm h-100 border-0" style="background: linear-gradient(135deg, #4F46E5 0%, #1e3a8a 100%);">
-            <div class="card-body d-flex justify-content-between align-items-center h-100">
-                <div>
-                    <h6 class="card-title text-uppercase text-white-50 fw-bold small p-0 mt-2 mb-2">Pendapatan Hari Ini</h6>
-                    <h2 class="fw-bolder text-white mb-1">Rp 5.240.000</h2>
-                    <div class="d-flex align-items-center text-white-50 small mt-3 fw-bold">
-                        <i class="bi bi-check-circle me-1"></i> Target tercapai
-                    </div>
-                </div>
-                <div class="d-none d-sm-flex align-items-center justify-content-center bg-white bg-opacity-25 rounded-3 p-3 ms-3" style="transform: rotate(12deg); width: 64px; height: 64px;">
-                    <i class="bi bi-wallet2 fs-2 text-white"></i>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<!-- Info Banner -->
+<div class="alert border-0 shadow-sm d-flex align-items-center justify-content-between mb-4" style="background:#fff;border-radius:10px">
+    <div class="d-flex align-items-center">
+        <i class="fas fa-star text-warning mr-3"></i>
+        <span class="small font-weight-bold text-dark">Pilih slot parkir yang tersedia. Klik pada slot untuk melihat detail harga dan informasi lainnya.</span>
+    </div>
+    <div class="d-none d-md-flex align-items-center ml-3" style="gap:16px">
+        <span class="small text-muted"><i class="fas fa-circle text-success mr-1" style="font-size:.5rem"></i> Tersedia</span>
+        <span class="small text-muted"><i class="fas fa-circle text-danger mr-1" style="font-size:.5rem"></i> Terisi</span>
+        <span class="small text-muted"><i class="fas fa-circle text-secondary mr-1" style="font-size:.5rem"></i> Maintenance</span>
+        <span class="small text-muted"><span class="border d-inline-block mr-1" style="width:10px;height:10px;border-radius:2px"></span> Dipilih</span>
+    </div>
 </div>
 
 <div class="row">
-    <!-- Park Map Section -->
-    <div class="col-lg-12 mb-4">
-        <div class="card shadow-sm h-100 border-0">
-            <div class="card-header bg-white d-flex justify-content-between align-items-center py-3 border-bottom">
+    <!-- Peta Slot Parkir -->
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm border-0" style="border-radius:10px">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom">
                 <div>
-                    <h5 class="fw-bolder mb-1">Peta Slot Parkir Logis</h5>
-                    <small class="text-muted fw-semibold">Live monitoring Lantai 1 (A & B)</small>
+                    <h6 class="font-weight-bold text-dark mb-0">Peta Slot Parkir Logis</h6>
+                    <small class="text-muted">Live monitoring Lantai 1 (A & B)</small>
                 </div>
-                <div class="btn-group btn-group-sm" role="group">
-                    <button type="button" class="btn btn-outline-primary active fw-bold px-3 py-1">Lantai 1</button>
-                    <button type="button" class="btn btn-outline-secondary fw-bold px-3 py-1">Lantai 2</button>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-primary font-weight-bold px-3" id="btnLt1" onclick="switchLantai(1)">Lantai 1</button>
+                    <button type="button" class="btn btn-outline-secondary font-weight-bold px-3" id="btnLt2" onclick="switchLantai(2)">Lantai 2</button>
                 </div>
             </div>
-
-            <div class="card-body bg-light p-4">
-                <!-- Zone A -->
+            <div class="card-body p-4" style="background:#f8f9fc">
+                <!-- Zona A -->
                 <div class="mb-4">
-                    <h6 class="text-muted text-uppercase fw-bolder mb-3 d-flex align-items-center">
-                        <span class="badge border border-4 border-primary rounded-circle bg-primary p-1 me-2"
-                            style="--bs-border-opacity: .2;"></span> Zona A (Premium)
-                    </h6>
-                    <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6 g-3">
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">A1</span>
+                    <h6 class="text-muted text-uppercase font-weight-bold small mb-3">Zona A (Premium)</h6>
+                    <div class="row" style="gap:0" id="zonaA">
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'A1')">
+                                <span class="font-weight-bold">A1</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border border-danger border-2 rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm text-danger"
-                                style="height: 80px; cursor: not-allowed;">
-                                <i class="bi bi-car-front fs-5 mb-1"></i>
-                                <small class="fw-bold" style="font-size: 11px;">A2</small>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-terisi">
+                                <i class="fas fa-car text-danger"></i>
+                                <small class="font-weight-bold text-danger">A2</small>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border border-danger border-2 rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm text-danger"
-                                style="height: 80px; cursor: not-allowed;">
-                                <i class="bi bi-car-front fs-5 mb-1"></i>
-                                <small class="fw-bold" style="font-size: 11px;">A3</small>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-terisi">
+                                <i class="fas fa-car text-danger"></i>
+                                <small class="font-weight-bold text-danger">A3</small>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">A4</span>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'A4')">
+                                <span class="font-weight-bold">A4</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">A5</span>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'A5')">
+                                <span class="font-weight-bold">A5</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border-secondary rounded-3 d-flex flex-column align-items-center justify-content-center text-secondary"
-                                style="height: 80px; border-style: dashed !important; border-width: 2px !important; cursor: not-allowed;">
-                                <i class="bi bi-tools fs-6 opacity-75 mb-1"></i>
-                                <small class="fw-bold" style="font-size: 11px;">MTO</small>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-maint">
+                                <i class="fas fa-tools text-secondary"></i>
+                                <small class="font-weight-bold text-secondary">MTO</small>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Zone B -->
+                <!-- Zona B -->
                 <div>
-                    <h6 class="text-muted text-uppercase fw-bolder mb-3 d-flex align-items-center">
-                        <span class="badge border border-4 border-success rounded-circle bg-success p-1 me-2"
-                            style="--bs-border-opacity: .2;"></span> Zona B (Reguler)
-                    </h6>
-                    <div class="row row-cols-2 row-cols-sm-4 row-cols-md-6 g-3">
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">B1</span>
+                    <h6 class="text-muted text-uppercase font-weight-bold small mb-3">Zona B (Reguler)</h6>
+                    <div class="row" id="zonaB">
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'B1')">
+                                <span class="font-weight-bold">B1</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border border-danger border-2 rounded-3 d-flex flex-column align-items-center justify-content-center shadow-sm text-danger"
-                                style="height: 80px; cursor: not-allowed;">
-                                <i class="bi bi-bicycle fs-5 mb-1"></i>
-                                <small class="fw-bold" style="font-size: 11px;">B2</small>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-terisi">
+                                <i class="fas fa-car text-danger"></i>
+                                <small class="font-weight-bold text-danger">B2</small>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">B3</span>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'B3')">
+                                <span class="font-weight-bold">B3</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">B4</span>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'B4')">
+                                <span class="font-weight-bold">B4</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">B5</span>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'B5')">
+                                <span class="font-weight-bold">B5</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="bg-white border rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                style="height: 80px; cursor: pointer;">
-                                <span class="fw-bold text-muted">B6</span>
+                        <div class="col-4 col-sm-2 mb-3">
+                            <div class="slot-box slot-free" onclick="pilihSlot(this,'B6')">
+                                <span class="font-weight-bold">B6</span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="card-footer bg-white d-flex justify-content-center gap-4 py-3 border-top">
-                <div class="d-flex align-items-center gap-2 small fw-bold text-muted">
-                    <span class="border rounded-circle bg-white border-2"
-                        style="width: 12px; height: 12px; display: inline-block;"></span> &emsp; Tersedia &emsp;
-                </div>
-                <div class="d-flex align-items-center gap-2 small fw-bold text-muted">
-                    <span class="border border-danger border-2 rounded-circle bg-white"
-                        style="width: 12px; height: 12px; display: inline-block;"></span> &emsp; Terisi &emsp;
-                </div>
-                <div class="d-flex align-items-center gap-2 small fw-bold text-muted">
-                    <span class="border border-primary border-2 rounded-circle bg-primary bg-opacity-10"
-                        style="width: 12px; height: 12px; display: inline-block;"></span> &emsp; Dipesan &emsp;
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Live Transactions Column -->
-    <!-- <div class="col-lg-4 mb-4">
-        <div class="card shadow-sm h-100 border-0">
-            <div class="card-header bg-white d-flex justify-content-between align-items-center py-3 border-bottom">
-                <h5 class="fw-bolder mb-0 d-flex align-items-center gap-2">
-                   <div class="spinner-grow bg-success" style="width: 10px; height: 10px;" role="status">
-                     <span class="visually-hidden"></span>
-                   </div>
-                     &emsp; Aktivitas Teras
-                </h5>
+    <!-- Detail Reservasi -->
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm border-0 mb-3" style="border-radius:10px">
+            <div class="card-header bg-white py-3 border-bottom">
+                <h6 class="font-weight-bold text-dark mb-0">Detail Reservasi</h6>
             </div>
-            
-            <div class="card-body bg-light p-4 d-flex flex-column gap-3">
-                
-                <div class="bg-white p-3 rounded-4 border shadow-sm transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <span class="badge bg-primary bg-opacity-10 text-primary text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Masuk</span>
-                        <small class="text-muted" style="font-size: 12px;">Baru saja</small>
-                    </div>
-                    <p class="fw-bold mb-0 text-dark" style="font-family: monospace; font-size: 15px;">B 1234 ABC</p>
-                    <small class="text-muted d-block mt-1 fw-semibold" style="font-size: 12px;">Mobil - Gate Utara 1</small>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Slot</span>
+                    <span class="small font-weight-bold" id="detailSlot">-</span>
                 </div>
-
-                <div class="bg-white p-3 rounded-4 border shadow-sm transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <span class="badge bg-success bg-opacity-10 text-success text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Keluar</span>
-                        <small class="text-muted" style="font-size: 12px;">2 mnt yll</small>
-                    </div>
-                    <p class="fw-bold mb-0 text-dark" style="font-family: monospace; font-size: 15px;">D 889 UI</p>
-                    <small class="text-muted d-block mt-1 fw-semibold" style="font-size: 12px;">Motor - Pembayaran: QRIS</small>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Tanggal</span>
+                    <span class="small font-weight-bold" id="detailTanggal">6 Mei 2026</span>
                 </div>
-
-                <div class="bg-white p-3 rounded-4 border shadow-sm transition">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <span class="badge bg-primary bg-opacity-10 text-primary text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Masuk</span>
-                        <small class="text-muted" style="font-size: 12px;">8 mnt yll</small>
-                    </div>
-                    <p class="fw-bold mb-0 text-dark" style="font-family: monospace; font-size: 15px;">F 2021 XYZ</p>
-                    <small class="text-muted d-block mt-1 fw-semibold" style="font-size: 12px;">Mobil - Gate Selatan</small>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Waktu Masuk</span>
+                    <span class="small font-weight-bold">08:00</span>
                 </div>
-                
-                 <div class="bg-white p-3 rounded-4 border shadow-sm my-auto opacity-75">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <span class="badge bg-danger bg-opacity-10 text-danger text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Gagal</span>
-                        <small class="text-muted" style="font-size: 12px;">15 mnt yll</small>
-                    </div>
-                    <p class="fw-bold mb-0 text-dark" style="font-family: monospace; font-size: 15px;">Tidak Terbaca</p>
-                    <small class="text-muted d-block mt-1 fw-semibold" style="font-size: 12px;">CCTV Gate Utara 2 Error</small>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Durasi</span>
+                    <span class="small font-weight-bold" id="detailDurasi">2 Jam</span>
                 </div>
-
+                <div class="d-flex justify-content-between">
+                    <span class="small text-muted">Jenis Kendaraan</span>
+                    <span class="small font-weight-bold" id="detailKendaraan">Mobil</span>
+                </div>
             </div>
-            
-            <a href="<?= site_url('/riwayat') ?>" class="card-footer bg-white text-center fw-bold text-primary text-decoration-none py-3 border-top hover-bg-light">
-                Lihat Semua Riwayat
-            </a>
         </div>
-    </div> -->
+
+        <div class="card shadow-sm border-0" style="border-radius:10px">
+            <div class="card-header bg-white py-3 border-bottom">
+                <h6 class="font-weight-bold text-dark mb-0">Rincian Biaya</h6>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted" id="labelTarif">Tarif Parkir: 2 Jam x Rp 6.000</span>
+                    <span class="small font-weight-bold" id="biayaTarif">Rp 12.000</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="small text-muted">Biaya Layanan</span>
+                    <span class="small font-weight-bold">Rp 1.000</span>
+                </div>
+                <hr class="my-2">
+                <div class="d-flex justify-content-between">
+                    <span class="font-weight-bold">Total</span>
+                    <span class="font-weight-bold text-primary" id="biayaTotal">Rp 13.000</span>
+                </div>
+            </div>
+            <div class="card-footer bg-white border-top-0 pb-3">
+                <a href="<?= site_url('/pembayaran') ?>" class="btn btn-primary btn-block font-weight-bold" style="border-radius:6px" id="btnLanjut">
+                    <i class="fas fa-arrow-right mr-1"></i> Lanjut ke Detail
+                </a>
+                <a href="#" class="btn btn-link btn-block text-muted small font-weight-bold" onclick="resetSlot()">
+                    <i class="fas fa-undo mr-1"></i> Kembali ke Pencarian
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Styles -->
+<style>
+.slot-box {
+    background: #fff;
+    border: 2px solid #e3e6f0;
+    border-radius: 8px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    gap: 2px;
+}
+.slot-box:hover { border-color: #4e73df; }
+.slot-free { color: #858796; }
+.slot-free:hover { background: #f0f3ff; }
+.slot-terisi {
+    border-color: #e74a3b;
+    background: #fff5f5;
+    cursor: not-allowed;
+}
+.slot-maint {
+    border: 2px dashed #d1d3e2;
+    background: #f8f9fc;
+    cursor: not-allowed;
+}
+.slot-selected {
+    border-color: #4e73df !important;
+    background: #eef2ff !important;
+    color: #4e73df !important;
+}
+</style>
+
+<!-- Scripts -->
+<script>
+var selectedSlot = null;
+var tarifMobil = 6000;
+var tarifMotor = 3000;
+
+function pilihSlot(el, nama) {
+    // Remove previous selection
+    document.querySelectorAll('.slot-selected').forEach(function(s) {
+        s.classList.remove('slot-selected');
+    });
+    el.classList.add('slot-selected');
+    selectedSlot = nama;
+    document.getElementById('detailSlot').textContent = nama;
+    updateBiaya();
+}
+
+function updateBiaya() {
+    var jenis = document.getElementById('jenisKendaraan').value;
+    var durasi = parseInt(document.getElementById('durasi').value);
+    var tarif = jenis === 'mobil' ? tarifMobil : tarifMotor;
+    var total = (tarif * durasi) + 1000;
+
+    document.getElementById('detailDurasi').textContent = durasi + ' Jam';
+    document.getElementById('detailKendaraan').textContent = jenis === 'mobil' ? 'Mobil' : 'Motor';
+    document.getElementById('labelTarif').textContent = 'Tarif Parkir: ' + durasi + ' Jam x Rp ' + tarif.toLocaleString('id-ID');
+    document.getElementById('biayaTarif').textContent = 'Rp ' + (tarif * durasi).toLocaleString('id-ID');
+    document.getElementById('biayaTotal').textContent = 'Rp ' + total.toLocaleString('id-ID');
+}
+
+function resetSlot() {
+    document.querySelectorAll('.slot-selected').forEach(function(s) {
+        s.classList.remove('slot-selected');
+    });
+    selectedSlot = null;
+    document.getElementById('detailSlot').textContent = '-';
+}
+
+function switchLantai(lt) {
+    if (lt === 1) {
+        document.getElementById('btnLt1').className = 'btn btn-primary font-weight-bold px-3';
+        document.getElementById('btnLt2').className = 'btn btn-outline-secondary font-weight-bold px-3';
+    } else {
+        document.getElementById('btnLt1').className = 'btn btn-outline-secondary font-weight-bold px-3';
+        document.getElementById('btnLt2').className = 'btn btn-primary font-weight-bold px-3';
+    }
+    resetSlot();
+}
+</script>
 
 <?= $this->endSection() ?>
