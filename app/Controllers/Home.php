@@ -8,6 +8,7 @@ class Home extends BaseController
     {
         return redirect()->to('/dashboard');
     }
+
     public function dashboard(): string
     {
         return view('dashboard');
@@ -20,5 +21,11 @@ class Home extends BaseController
     public function profil(): string
     {
         return view('profil');
+    } 
+
+    public function pembayaran(): string
+    {
+        return view('pembayaran');
     }
 }
+

@@ -33,7 +33,10 @@ if(uri_string()!=""){
 
     <!-- Custom styles for this page -->
     <link href="<?= base_url('startbootstrap-sb-admin-2-gh-pages/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
-  
+    
+    <!-- Icons styles flation -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/css/all/all.min.css'>
+    
 
 </head>
 

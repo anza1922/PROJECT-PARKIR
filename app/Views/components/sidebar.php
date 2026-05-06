@@ -31,12 +31,11 @@ $uri = uri_string();
           </a>
       </li>
 
-      <!-- Nav Item - Pembayaran -->
-      <li class="nav-item <?= ($uri === 'pembayaran') ? 'active' : '' ?>">
+
+      <li class="nav-item">
           <a class="nav-link" href="<?= site_url('/pembayaran') ?>">
-              <i class="fas fa-fw fa-credit-card"></i>
-              <span>Pembayaran</span>
-          </a>
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Pembayaran</span></a>
       </li>
 
       <!-- Divider -->
