@@ -27,7 +27,7 @@
 
 
       <li class="nav-item">
-          <a class="nav-link" href="<?= site_url('/dashboard') ?>">
+          <a class="nav-link" href="<?= site_url('/pembayaran') ?>">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Pembayaran</span></a>
       </li>
